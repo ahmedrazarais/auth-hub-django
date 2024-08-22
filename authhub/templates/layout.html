@@ -1,0 +1,29 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {% tailwind_css %}
+</head>
+<body>
+    <!-- Full-page Background Image -->
+    <div class="min-h-screen bg-cover bg-center" style="background-image: url('{% static "bench-accounting-nvzvOPQW0gc-unsplash.jpg" %}');">
+        <!-- Navbar -->
+        <nav class="bg-transparent p-4 fixed top-0 left-0 right-0 w-full z-10 shadow-lg">
+            <!-- Flex container to move the links to the right -->
+            <div class="flex justify-end space-x-6 mr-10">
+                <a href="{% url 'home_page' %}" class="font-bold text-black hover:text-gray-400">Home</a>
+                <a href="{% url 'about' %}" class="font-bold text-black hover:text-gray-400">About</a>
+                <a href="{% url 'register_home' %}" class="font-bold text-black hover:text-gray-400">SignUp</a>
+                <a href="{% url 'login_home_page' %}" class="font-bold text-black hover:text-gray-400">Login</a>
+            </div>
+        </nav>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
